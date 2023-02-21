@@ -1,0 +1,33 @@
+<odoo>
+    <data>
+<!--          
+          <record id="curso1" model="academia.curso">
+            <field name="name">A C1</field>
+            <field name="nombre">Alemán Avanzado</field>
+            <field name="numero_examenes">5</field>
+          </record>
+
+          <record id="matricula1" model="academia.matricula">
+            <field name="codigo_estudiante">111111111</field>
+            <field name="nombre_estudiante">Miguel</field>
+            <field name="codigo_curso">A C1</field>
+            <field name="nombre_curso">Alemán Avanzado</field>
+            <field name="nota">5</field>
+          </record>
+
+          <record id="examen1" model="academia.examen">
+            <field name="name">1</field>
+            <field name="fecha_examen">14/02/2023</field>
+            <field name="nota">10</field>
+          </record>
+
+          <record id="estudiante1" model="academia.estudiante">
+            <field name="name">111111111</field>
+            <field name="nombre">Miguel</field>
+            <field name="apellidos">Pelegrina Bonilla</field>
+            <field name="fecha_nacimiento">02/03/1995</field>
+            <field name="anios">27</field>
+          </record>
+-->
+    </data>
+</odoo>

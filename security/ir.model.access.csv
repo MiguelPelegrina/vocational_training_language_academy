@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_academia_estudiante_usuario,academia.estudiante.usuario,model_academia_estudiante,group_academia_usuario,1,1,1,1
+access_academia_estudiante_administrador,academia.estudiante.administrador,model_academia_estudiante,group_academia_administrador,1,1,1,1
+access_academia_curso_usuario,academia.curso.usuario,model_academia_curso,group_academia_usuario,1,1,1,1
+access_academia_curso_administrador,academia.curso.administrador,model_academia_curso,group_academia_administrador,1,1,1,1
+access_academia_matricula_usuario,academia.matricula.usuario,model_academia_matricula,group_academia_usuario,1,1,1,1
+access_academia_matricula_administrador,academia.matricula.administrador,model_academia_matricula,group_academia_administrador,1,1,1,1
+access_academia_examen_usuario,academia.examen.usuario,model_academia_examen,group_academia_usuario,1,1,1,1
+access_academia_examen_administrador,academia.examen.administrador,model_academia_examen,group_academia_administrador,1,1,1,1

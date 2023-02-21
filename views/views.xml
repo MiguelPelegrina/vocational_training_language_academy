@@ -1,0 +1,338 @@
+<odoo>
+  <data>
+
+<!-- Vistas de la academia-->
+
+<record model="ir.ui.view" id="academia.estudiante_list_view">
+	<field name="name">academia.estudiante.view.tree</field>
+	<field name="model">academia.estudiante</field>
+	<field name="arch" type="xml">
+		<tree>
+			<field name="name"/>
+			<field name="nombre"/>	
+			<field name="apellidos"/>
+			<field name="fecha_nacimiento"/>	
+			<field name="anios"/>				
+			<field name="matriculas_estudiantes_ids"/>		
+		</tree>
+	</field>
+</record>
+
+<record model="ir.ui.view" id="academia.curso_list_view">
+	<field name="name">academia.curso.view.tree</field>
+	<field name="model">academia.curso</field>
+	<field name="arch" type="xml">
+		<tree>
+			<field name="name"/>
+			<field name="nombre"/>	
+			<field name="numero_examenes"/>				
+			<field name="matriculas_cursos_ids"/>
+		</tree>
+	</field>
+</record>
+
+<record model="ir.ui.view" id="academia.examen_list_view">
+	<field name="name">academia.examen.view.tree</field>
+	<field name="model">academia.examen</field>
+	<field name="arch" type="xml">
+		<tree>
+			<field name="name"/>
+			<field name="fecha_examen"/>	
+			<field name="nota"/>			
+			<field name="matricula_id"/>		
+		</tree>
+	</field>
+</record>
+
+<record model="ir.ui.view" id="academia.matricula_list_view">
+	<field name="name">academia.matricula.view.tree</field>
+	<field name="model">academia.matricula</field>
+	<field name="arch" type="xml">
+		<tree>
+			<field name="name"/>			
+			<field name="estudiantes_ids"/>				
+			<field name="cursos_ids"/>
+			<field name="examenes_ids"/>	
+		</tree>
+	</field>
+</record>
+
+<!-- Campos de búsqueda -->
+
+<record model="ir.ui.view" id="academia.estudiante_search_view">
+	<field name="name">academia.estudiante.view.search</field>
+	<field name="model">academia.estudiante</field>
+	<field name="arch" type="xml">
+		<search>
+			<field name="name"/>
+			<field name="nombre"/>	
+			<field name="apellidos"/>
+			<field name="fecha_nacimiento"/>	
+			<field name="anios"/>			
+			<field name="matriculas_estudiantes_ids"/>
+			<group>
+				<filter name="group_by_name" string="name" context="{'group_by':'name'}"></filter>
+			</group>		
+		</search>	
+	</field>
+</record>
+
+<record model="ir.ui.view" id="academia.curso_search_view">
+	<field name="name">academia.curso.view.search</field>
+	<field name="model">academia.curso</field>
+	<field name="arch" type="xml">
+		<search>
+			<field name="name"/>
+			<field name="nombre"/>	
+			<field name="numero_examenes"/>			
+			<field name="matriculas_cursos_ids"/>
+			<group>
+				<filter name="group_by_name" string="name" context="{'group_by':'name'}"></filter>
+			</group>		
+		</search>	
+	</field>
+</record>
+
+<record model="ir.ui.view" id="academia.examen_search_view">
+	<field name="name">academia.examen.view.search</field>
+	<field name="model">academia.examen</field>
+	<field name="arch" type="xml">
+		<search>
+			<field name="name"/>
+			<field name="fecha_examen"/>	
+			<field name="nota"/>			
+			<field name="matricula_id"/>
+			<group>
+				<filter name="group_by_name" string="name" context="{'group_by':'name'}"></filter>
+			</group>		
+		</search>	
+	</field>
+</record>
+
+<record model="ir.ui.view" id="academia.matricula_search_view">
+	<field name="name">academia.matricula.view.search</field>
+	<field name="model">academia.matricula</field>
+	<field name="arch" type="xml">
+		<search>
+			<field name="name"/>			
+			<field name="estudiantes_ids"/>				
+			<field name="cursos_ids"/>
+			<field name="estudiantes_ids"/>
+			<field name="cursos_ids"/>
+			<field name="examenes_ids"/>	
+			<group>
+				<filter name="group_by_name" string="name" context="{'group_by':'name'}"></filter>
+			</group>			
+		</search>	
+	</field>
+</record>
+
+<!-- Formularios -->
+
+<record model="ir.ui.view" id="academia.estudiante_form_view">
+	<field name="name">academia.estudiante.view.form</field>
+	<field name="model">academia.estudiante</field>
+	<field name="arch" type="xml">
+		<form string="Información del estudiante">
+			<sheet>	
+				<table>
+					<tr>
+						<th>
+							DNI: <field name="name"/>
+						</th>
+					</tr>
+					<tr>
+						<td>
+							Nombre: <field name="nombre"/>				
+						</td>
+					</tr>
+					<tr>
+						<td>
+							Apellidos: <field name="apellidos" />
+						</td>
+					</tr>
+					<tr>
+						<td>
+							Fecha de nacimiento: <field name="fecha_nacimiento"/>	
+						</td>
+					</tr>
+					<tr>
+						<td>
+							Matriculas <field name="matriculas_estudiantes_ids"/>
+						</td>
+					</tr>
+				</table>		
+			</sheet>
+		</form>
+	</field>	
+</record>
+
+<record model="ir.ui.view" id="academia.curso_form_view">
+	<field name="name">academia.curso.view.form</field>
+	<field name="model">academia.curso</field>
+	<field name="arch" type="xml">
+		<form string="Información del curso">
+			<sheet>
+				<table>
+					<tr>
+						<th>
+							Código curso: <field name="name"/>
+						</th>
+					</tr>
+					<tr>
+						<td>
+							Nombre curso: <field name="nombre"/>	
+						</td>
+					</tr>					
+					<tr>
+						<td>
+							Nº exámenes: <field name="numero_examenes"/>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							Matriculas <field name="matriculas_cursos_ids"/>
+						</td>
+					</tr>
+				</table>
+			</sheet>
+		</form>
+	</field>	
+</record>
+
+<record model="ir.ui.view" id="academia.examen_form_view">
+	<field name="name">academia.examen.view.form</field>
+	<field name="model">academia.examen</field>
+	<field name="arch" type="xml">
+		<form string="Información del examen">
+			<sheet>
+				<table>
+					<tr>
+						<th>
+							Número examen: <field name="name"/>
+						</th>
+					</tr>
+					<tr>
+						<td>
+							Fecha examen: <field name="fecha_examen"/>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							Nota: <field name="nota" placeholder="Nota"/>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							Matriculas <field name="matricula_id"/>
+						</td>
+					</tr>
+				</table>
+			</sheet>
+		</form>
+	</field>	
+</record>
+
+<record model="ir.ui.view" id="academia.matricula_form_view">
+	<field name="name">academia.matricula.view.form</field>
+	<field name="model">academia.matricula</field>
+	<field name="arch" type="xml">
+		<form string="Información de la matricula">
+			<sheet>
+				<table>
+					<tr>
+						<th>
+							Código matrícula: <field name="name"/>
+						</th>		
+					</tr>
+					<tr>
+						<td>
+							Estudiante <field name="estudiantes_ids"/>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							Curso <field name="cursos_ids"/>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							Exámenes <field name="examenes_ids"/>
+						</td>
+					</tr>
+				</table>			
+			</sheet>
+		</form>
+	</field>	
+</record>
+
+<!-- Calendario -->
+
+<record model="ir.ui.view" id="academia.estudiante_calendar_view">
+	<field name="name">academia.estudiante.view.calendar</field>
+	<field name="model">academia.estudiante</field>
+	<field name="arch" type="xml">
+		<calendar string="Fecha de nacimiento" date_start="fecha_nacimiento" color="fecha_nacimiento" mode="month">
+			<field name="name"/>
+			<field name="nombre"/>	
+			<field name="apellidos"/>
+			<field name="fecha_nacimiento"/>	
+			<field name="anios"/>	
+		</calendar>
+	</field>
+</record>
+
+
+<record model="ir.ui.view" id="academia.examen_calendar_view">
+	<field name="name">academia.examen.view.calendar</field>
+	<field name="model">academia.examen</field>
+	<field name="arch" type="xml">
+		<calendar string="Fecha examen" date_start="fecha_examen" color="fecha_examen" mode="month">
+			<field name="name"/>
+			<field name="fecha_examen"/>	
+			<field name="nota"/>	
+		</calendar>
+	</field>
+</record>
+
+
+<!-- Definicion de menus -->
+
+<record model="ir.actions.act_window" id="academia.estudiante_action_window">
+	<field name="name">Estudiante</field>
+	<field name="res_model">academia.estudiante</field>
+	<field name="view_mode">tree,form,calendar</field>
+</record>
+
+<record model="ir.actions.act_window" id="academia.curso_action_window">
+	<field name="name">Curso</field>
+	<field name="res_model">academia.curso</field>
+	<field name="view_mode">tree,form</field>
+</record>
+
+<record model="ir.actions.act_window" id="academia.matricula_action_window">
+	<field name="name">Matricula</field>
+	<field name="res_model">academia.matricula</field>
+	<field name="view_mode">tree,form</field>
+</record>
+
+<record model="ir.actions.act_window" id="academia.examen_action_window">
+	<field name="name">Examen</field>
+	<field name="res_model">academia.examen</field>
+	<field name="view_mode">tree,form,calendar</field>
+</record>
+
+<menuitem name="Academia" id="academia.menu_root" web_icon="academia,static/description.png"/>
+
+<menuitem name="Estudiantes" id="academia.menu_estudiante" parent="academia.menu_root"/>
+<menuitem name="Cursos" id="academia.menu_curso" parent="academia.menu_root"/>
+<menuitem name="Matriculas" id="academia.menu_matricula" parent="academia.menu_root"/>
+<menuitem name="Exámenes" id="academia.menu_examen" parent="academia.menu_root"/>
+
+<menuitem name="Lista estudiantes" id="academia.menu_estudiante_list" parent="academia.menu_estudiante" action="academia.estudiante_action_window"/>
+<menuitem name="Lista cursos" id="academia.menu_curso_list" parent="academia.menu_curso" action="academia.curso_action_window"/>
+<menuitem name="Lista matriculas" id="academia.menu_matricula_list" parent="academia.menu_matricula" action="academia.matricula_action_window"/>
+<menuitem name="Lista exámenes" id="academia.menu_examen_list" parent="academia.menu_examen" action="academia.examen_action_window"/>
+   
+  </data>
+</odoo>

@@ -1,0 +1,26 @@
+<odoo>
+	<record id="academia.matricula_report" model="ir.actions.report">
+		<field name="name">Informe de matriculas</field>
+		<field name="model">academia.matricula</field>
+		<field name="report_type">qweb-pdf</field>
+		<field name="report_name">academia.matricula_report_view</field>
+		<field name="report_file">academia.matricula_report</field>
+		<field name="binding_model_id" ref="model_academia_matricula"/>
+		<field name="binding_type">report</field>
+	</record>
+	<template id="matricula_report_view">
+		<t t-call="web.html_container">
+			<t t-call="web.external_layout">
+				<h1>Matriculas</h1><br/>
+				<t t-foreach="docs" t-as="matricula">
+					<ul>
+						<li>Código de la matricula: <span t-field="matricula.name"/></li>
+						<li>Codigo del estudiante: <span t-field="matricula.estudiantes_ids"/></li>		
+						<li>Código del curso: <span t-field="matricula.cursos_ids"/></li>
+						<li>Examenes: <span t-field="matricula.examenes_ids"/></li>
+					</ul>
+				</t>
+			</t>		
+		</t>
+	</template>
+</odoo>

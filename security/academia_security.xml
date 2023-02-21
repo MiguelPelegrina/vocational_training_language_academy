@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+	<data>
+		<record model="ir.module.category" id="academia.module_category_academia">
+			<field name="name">Academia</field>
+			<field name="description">Academia de idiomas</field>
+			<field name="sequence">100</field>		
+		</record>
+
+		<record model="res.groups" id="group_academia_usuario">
+			<field name="name">Usuario</field>
+			<field name="category_id" ref="academia.module_category_academia"></field>
+			<field name="comment">Usuarios Lectura</field>		
+		</record>
+
+		<record model="res.groups" id="group_academia_administrador">
+			<field name="name">Administrador</field>
+			<field name="category_id" ref="academia.module_category_academia"></field>
+			<field name="comment">Administrador r/w</field>
+			<field name="implied_ids" eval="[(4,ref('group_academia_usuario'))]"/>
+			<field name="users" eval="[(4,ref('base.user_root')), (4,ref('base.user_admin'))]"/>
+		</record>
+	</data>
+</odoo>

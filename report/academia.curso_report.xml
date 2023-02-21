@@ -1,0 +1,26 @@
+<odoo>
+	<record id="academia.curso_report" model="ir.actions.report">
+		<field name="name">Informe de cursos</field>
+		<field name="model">academia.curso</field>
+		<field name="report_type">qweb-pdf</field>
+		<field name="report_name">academia.curso_report_view</field>
+		<field name="report_file">academia.curso_report</field>
+		<field name="binding_model_id" ref="model_academia_curso"/>
+		<field name="binding_type">report</field>
+	</record>
+	<template id="curso_report_view">
+		<t t-call="web.html_container">
+			<t t-call="web.external_layout">
+				<h1>Cursos</h1><br/>
+				<t t-foreach="docs" t-as="curso">
+					<ul>
+						<li>Código: <span t-field="curso.name"/></li>
+						<li>Nombre: <span t-field="curso.nombre"/></li>
+						<li>Número de exámenes: <span t-field="curso.numero_examenes"/></li>
+						<li>Matriculas: <span t-field="curso.matriculas_cursos_ids"/></li>
+					</ul>
+				</t>
+			</t>		
+		</t>
+	</template>
+</odoo>

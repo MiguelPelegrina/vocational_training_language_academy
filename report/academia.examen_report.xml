@@ -1,0 +1,26 @@
+<odoo>
+	<record id="academia.examen_report" model="ir.actions.report">
+		<field name="name">Informe de examenes</field>
+		<field name="model">academia.examen</field>
+		<field name="report_type">qweb-pdf</field>
+		<field name="report_name">academia.examen_report_view</field>
+		<field name="report_file">academia.examen_report</field>
+		<field name="binding_model_id" ref="model_academia_examen"/>
+		<field name="binding_type">report</field>
+	</record>
+	<template id="examen_report_view">
+		<t t-call="web.html_container">
+			<t t-call="web.external_layout">
+				<h1>Examenes</h1><br/>
+				<t t-foreach="docs" t-as="examen">
+					<ul>
+						<li>Número examen: <span t-field="examen.name"/></li>
+						<li>Fecha del examen: <span t-field="examen.fecha_examen"/></li>
+						<li>Nota: <span t-field="examen.nota"/></li>
+						<li>Matricula: <span t-field="examen.matricula_id"/></li>			
+					</ul>
+				</t>
+			</t>		
+		</t>
+	</template>
+</odoo>
